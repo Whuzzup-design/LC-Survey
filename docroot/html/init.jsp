@@ -69,7 +69,7 @@
 
 <liferay-theme:defineObjects />
 <portlet:defineObjects />
-123
+
 <%
 	PortletURL currentURLObj = PortletURLUtil.getCurrent(liferayPortletRequest
 			, liferayPortletResponse);
