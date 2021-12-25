@@ -1,0 +1,468 @@
+/*survey layout*/
+.dialog-iframe-root-node {
+  padding: 0px !important;
+  background-color: #f6f6f6; }
+
+.layout-content {
+  background-color: #f6f6f6; }
+
+input {
+  background-color: #f6f6f6 !important; }
+
+/*survey form*/
+#_LCSurvey_WAR_LCSurveyportlet_fm {
+  margin: 0; }
+
+/*survey architecture*/
+.survey-architecture-container {
+  width: 0;
+  background-color: #2a3f54;
+  color: #ffffff;
+  max-height: 100%;
+  height: 100%;
+  position: fixed !important;
+  overflow: hidden;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
+
+.survey-architecture-container-extend {
+  width: 22%; }
+
+.survey-page-architecture-container {
+  overflow-y: scroll;
+  height: 90%;
+  width: 110%; }
+
+.survey-architecture-item {
+  font-size: 17px;
+  font-weight: 700;
+  padding: 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer; }
+
+.survey-architecture-item i {
+  margin-right: 10px;
+  cursor: pointer; }
+
+#survey_setting_arch {
+  border-bottom: 1.3px solid #ddd; }
+
+.survey-architecture-item:HOVER {
+  background-color: #426282; }
+
+.survey-architecture-item .survey-page-text {
+  cursor: move; }
+
+.survey-ques-architecture-container {
+  display: none; }
+
+.survey-ques-architecture {
+  margin: 30px 0 0 20px;
+  padding: 0 0 0 10px;
+  border-left: 4px solid;
+  cursor: move; }
+
+/*survey page tool bar*/
+.survey-edit-tool-bar {
+  position: fixed;
+  width: inherit;
+  top: 0;
+  right: 0;
+  padding: 10px 0;
+  z-index: 1000; }
+
+#survey_page_tool {
+  display: none; }
+
+.survey-edit-tool-btn {
+  color: #ababab;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 7.5px;
+  position: relative;
+  float: right;
+  background-color: #f6f6f6; }
+
+.survey-edit-tool-btn i {
+  line-height: 40px !important; }
+
+.survey-edit-tool-bar [class*="survey-edit-tool-btn"]:first-child {
+  float: left; }
+
+.survey-edit-tool-btn:HOVER {
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.7); }
+
+#survey_save_btn {
+  float: right !important; }
+
+.tool-bar-active-btn {
+  background-color: #515151;
+  color: white; }
+
+#survey_question_tool {
+  left: 0px;
+  top: 50px;
+  text-align: left; }
+
+/*survey main setting*/
+.survey-main-item {
+  margin: 0 6em 10em 6em; }
+
+.survey-main-item p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #73879c;
+  margin-bottom: 15px; }
+
+.survey-main-item .taglib-icon-help {
+  margin-left: 5px; }
+
+.survey-toggle-container {
+  position: relative; }
+
+.survey-toggle-checkmark-container {
+  position: absolute;
+  left: calc(50% - 50px);
+  top: 15px;
+  width: 100px;
+  height: 30px;
+  border-radius: 60px;
+  background-color: #cccccc;
+  transition: background-color 0.5s; }
+
+.survey-toggle-checkmark {
+  content: "";
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.5s; }
+
+.survey-toggle-container .survey-hidden-input:checked ~ .survey-toggle-checkmark-container {
+  background-color: #426282; }
+
+.survey-toggle-container .survey-hidden-input:checked ~ .survey-toggle-checkmark-container .survey-toggle-checkmark {
+  transform: translateX(70px); }
+
+.survey-color-setting-container {
+  position: relative;
+  width: 100%; }
+
+#survey_color_setting {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  left: calc(50% - 32.5px);
+  top: 10px;
+  font-size: 35px;
+  color: #ffffff; }
+
+#survey_color_setting i {
+  line-height: 65px; }
+
+/*survey page*/
+.survey-page-container {
+  width: 78%;
+  float: right;
+  max-height: 95%;
+  height: 95%;
+  text-align: center;
+  margin-top: 3.5%;
+  background-color: #f6f6f6; }
+
+.survey-page-container-extend {
+  width: 100%; }
+
+.survey-page {
+  display: none; }
+
+.survey-page-active {
+  display: block; }
+
+input[name="pageTitle"] {
+  font-size: 28px !important;
+  margin: 20px 0; }
+
+/*survey question*/
+.survey-question {
+  padding: 2.5em 20%;
+  text-align: left; }
+
+input[name="questionTitle"] {
+  width: 100% !important; }
+
+.label-hidden {
+  display: none !important; }
+
+.survey-question-bar-container {
+  display: inline-block;
+  content: "";
+  line-height: 0;
+  width: 100%;
+  float: left;
+  margin-bottom: 10px; }
+
+.survey-question-tip-bar {
+  width: 83%;
+  text-align: left;
+  float: left; }
+
+.survey-question-tool-bar {
+  display: none;
+  margin-left: 2%;
+  width: 15%;
+  text-align: right;
+  float: left;
+  position: relative; }
+
+.survey-question-tool-bar i {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 17px;
+  color: #b7b6b6; }
+
+.survey-question-tool-bar i:HOVER {
+  color: #515151;
+  font-weight: bold; }
+
+.survey-question-tip-bar i {
+  margin-right: 3px; }
+
+.survey-question a {
+  font-weight: bold !important;
+  cursor: pointer; }
+
+.survey-question a i {
+  margin-right: 3px; }
+
+.survey-option-container p {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 30px 0; }
+
+.survey-sub-question-container p {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 30px 0; }
+
+/*survey option*/
+.survey-option {
+  margin: 30px 0; }
+
+.survey-option-mark {
+  font-size: 14px;
+  color: #a3a3a3;
+  margin-right: 5px; }
+
+.survey-option-tool-bar {
+  display: none; }
+
+.survey-option:HOVER .survey-option-tool-bar {
+  display: inline; }
+
+.survey-option-tool-bar i {
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 17px;
+  color: #b7b6b6; }
+
+.survey-option-tool-bar i:HOVER {
+  color: #515151;
+  font-weight: bold; }
+
+.survey-option-direct {
+  float: right;
+  width: 30%;
+  background-color: #999;
+  color: white;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 0px 4px;
+  margin: 2.5px 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer; }
+
+.survey-option-direct-hidden {
+  display: none; }
+
+.survey-answer {
+  cursor: pointer; }
+
+.survey-correct-answer {
+  color: #4caf50; }
+
+/*survey sub question*/
+.survey-sub-question {
+  margin: 30px 0; }
+
+.survey-sub-question-mark {
+  font-size: 14px;
+  color: #a3a3a3;
+  margin-right: 5px; }
+
+.survey-sub-question-tool-bar {
+  display: none; }
+
+.survey-sub-question:HOVER .survey-sub-question-tool-bar {
+  display: inline; }
+
+.survey-sub-question-tool-bar i {
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 17px;
+  color: #b7b6b6; }
+
+.survey-sub-question-tool-bar i:HOVER {
+  color: #515151;
+  font-weight: bold; }
+
+/*survey image*/
+.survey-question-image {
+  margin-top: 10px;
+  position: relative; }
+
+.survey-option-image {
+  margin-top: 5px;
+  position: relative; }
+
+.survey-question-image img {
+  width: 100%; }
+
+.survey-option-image {
+  width: 50%;
+  margin-left: 19px; }
+
+.remove-img-btn {
+  position: absolute;
+  color: #ffffff;
+  cursor: pointer;
+  display: none; }
+
+.survey-question-image .remove-img-btn {
+  font-size: 50px;
+  left: calc(50% - 25px);
+  top: calc(50% - 25px); }
+
+.survey-option-image .remove-img-btn {
+  font-size: 30px;
+  right: calc(50% - 15px);
+  top: calc(50% - 15px); }
+
+.survey-question-image:HOVER img {
+  filter: brightness(0.3);
+  transition: filter .5s; }
+
+.survey-question-image:HOVER .remove-img-btn {
+  display: block; }
+
+.survey-option-image:HOVER img {
+  filter: brightness(0.5);
+  transition: filter .5s; }
+
+.survey-option-image:HOVER .remove-img-btn {
+  display: block; }
+
+.image-hidden {
+  display: none; }
+
+/*survey question setting*/
+#survey_question_setting {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  top: -5px;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.5);
+  text-align: left;
+  z-index: 1000;
+  min-width: 240px; }
+
+.survey-question-setting-row {
+  display: block;
+  margin: 20px;
+  height: 24px;
+  line-height: 24px;
+  position: relative; }
+
+#survey_question_setting font {
+  font-weight: bold;
+  font-size: 15px; }
+
+#survey_question_setting .survey-toggle-container {
+  display: inline-block;
+  margin-bottom: 0;
+  position: absolute;
+  right: 65px;
+  top: 1.5px; }
+
+#survey_question_setting .survey-toggle-checkmark-container {
+  top: 0;
+  left: 0;
+  width: 65px;
+  height: 20px; }
+
+#survey_question_setting .survey-toggle-checkmark {
+  width: 22px;
+  height: 22px;
+  top: -1px; }
+
+#survey_question_setting .survey-toggle-container .survey-hidden-input:checked ~ .survey-toggle-checkmark-container .survey-toggle-checkmark {
+  transform: translateX(44px); }
+
+.append-row {
+  float: right;
+  margin-left: 10px; }
+
+.append-btn {
+  position: relative;
+  width: 20px;
+  height: 30px;
+  background-color: #848383;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center; }
+
+.append-btn i {
+  position: absolute;
+  top: 6.5px;
+  left: 3px;
+  color: #ffffff;
+  margin: 0; }
+
+.append-btn i:HOVER {
+  color: #ffffff; }
+
+.minus-btn {
+  margin-right: -4px;
+  border-radius: 2px 0 0 2px; }
+
+.plus-btn {
+  margin-left: -4px;
+  border-radius: 0 2px 2px 0; }
+
+.number-input {
+  width: 60px !important;
+  display: inline-block !important;
+  border: none !important;
+  background-color: #e5e5e5 !important;
+  text-align: center !important;
+  vertical-align: top !important;
+  padding: 0 !important;
+  height: 30px; }
+

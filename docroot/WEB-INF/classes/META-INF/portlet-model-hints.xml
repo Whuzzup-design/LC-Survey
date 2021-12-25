@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.lc.survey.model.SurveyFile">
+		<field name="surveyFileId" type="long" />
+		<field name="surveyMainId" type="long" />
+		<field name="fileName" type="String">
+			<hint name="max-length">150</hint>
+		</field>
+		<field name="creatorId" type="long" />
+		<field name="createDate" type="long" />
+	</model>
+	<model name="com.lc.survey.model.SurveyMain">
+		<field name="surveyMainId" type="long" />
+		<field name="title" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="description" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="epilog" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="startDate" type="Date" />
+		<field name="endDate" type="Date" />
+		<field name="needAuth" type="Boolean" />
+		<field name="calculateScore" type="Boolean" />
+		<field name="viewAnswer" type="Boolean" />
+		<field name="color" type="String" />
+		<field name="creatorId" type="long" />
+		<field name="modifierId" type="long" />
+		<field name="createDate" type="long" />
+		<field name="modifiedDate" type="long" />
+	</model>
+	<model name="com.lc.survey.model.SurveyOption">
+		<field name="surveyOptionId" type="long" />
+		<field name="surveyMainId" type="long" />
+		<field name="surveyPageId" type="long" />
+		<field name="surveyQuestionId" type="long" />
+		<field name="no" type="int" />
+		<field name="option" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="isAns" type="Boolean" />
+		<field name="pageDirectId" type="long" />
+		<field name="uploadFileId" type="long" />
+		<field name="creatorId" type="long" />
+		<field name="modifierId" type="long" />
+		<field name="createDate" type="long" />
+		<field name="modifiedDate" type="long" />
+	</model>
+	<model name="com.lc.survey.model.SurveyPage">
+		<field name="surveyPageId" type="long" />
+		<field name="surveyMainId" type="long" />
+		<field name="no" type="int" />
+		<field name="title" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="pageDirectId" type="long" />
+		<field name="creatorId" type="long" />
+		<field name="modifierId" type="long" />
+		<field name="createDate" type="long" />
+		<field name="modifiedDate" type="long" />
+	</model>
+	<model name="com.lc.survey.model.SurveyQuestion">
+		<field name="surveyQuestionId" type="long" />
+		<field name="surveyMainId" type="long" />
+		<field name="surveyPageId" type="long" />
+		<field name="parentId" type="long" />
+		<field name="no" type="int" />
+		<field name="question" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="type" type="String" />
+		<field name="isRequired" type="Boolean" />
+		<field name="hasOther" type="Boolean" />
+		<field name="optionDirect" type="Boolean" />
+		<field name="points" type="String" />
+		<field name="starsCount" type="int" />
+		<field name="uploadFileId" type="long" />
+		<field name="creatorId" type="long" />
+		<field name="modifierId" type="long" />
+		<field name="createDate" type="long" />
+		<field name="modifiedDate" type="long" />
+	</model>
+	<model name="com.lc.survey.model.SurveyResponse">
+		<field name="surveyResponseId" type="long" />
+		<field name="surveyMainId" type="long" />
+		<field name="writerId" type="long" />
+		<field name="response" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="creatorId" type="long" />
+		<field name="createDate" type="long" />
+	</model>
+	<model name="com.lc.survey.model.SurveyResult">
+		<field name="surveyResultId" type="long" />
+		<field name="surveyMainId" type="long" />
+		<field name="surveyPageId" type="long" />
+		<field name="surveyQuestionId" type="long" />
+		<field name="surveyOptionId" type="long" />
+		<field name="surveyWriterId" type="long" />
+		<field name="ans" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="creatorId" type="long" />
+		<field name="createDate" type="long" />
+	</model>
+	<model name="com.lc.survey.model.SurveyWriter">
+		<field name="surveyWriterId" type="long" />
+		<field name="surveyMainId" type="long" />
+		<field name="isPreview" type="Boolean" />
+		<field name="isComplete" type="Boolean" />
+		<field name="completionTime" type="long" />
+		<field name="creatorId" type="long" />
+		<field name="createDate" type="long" />
+	</model>
+	<model name="com.lc.survey.model.SurveyWriteSequence">
+		<field name="surveyWriteSequenceId" type="long" />
+		<field name="surveyWriterId" type="long" />
+		<field name="pageId" type="long" />
+		<field name="prePageId" type="long" />
+		<field name="isDirect" type="Boolean" />
+		<field name="creatorId" type="long" />
+		<field name="createDate" type="long" />
+	</model>
+</model-hints>

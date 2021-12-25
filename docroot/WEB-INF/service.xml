@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.lc.survey">
+	<author>kevin</author>
+	<namespace>lc</namespace>
+	
+	<entity name="SurveyMain" local-service="true" remote-service="false">
+	
+		<column name="surveyMainId" type="long" primary="true" />
+		
+		<column name="title" type="String" />
+		<column name="description" type="String" /><!-- 問卷前言 -->
+		<column name="epilog" type="String" /><!-- 問卷結語 -->
+		<column name="startDate" type="Date" />
+		<column name="endDate" type="Date" />
+		<column name="needAuth" type="Boolean" /><!-- 填寫者是否需要認證 -->
+		<column name="calculateScore" type="Boolean"/><!-- 是否計算分數 -->
+		<column name="viewAnswer" type="Boolean"/><!-- 填寫者是否可檢視答案 -->
+		<column name="color" type="String"/>
+		
+		<column name="creatorId" type="long" />
+		<column name="modifierId" type="long" />
+		<column name="createDate" type="long" />
+		<column name="modifiedDate" type="long" />
+		
+		<order by="desc">
+			<order-column name="modifiedDate" />
+		</order>
+		
+		<finder return-type="Collection" name="CreatorId">
+			<finder-column name="creatorId" />
+		</finder>
+		
+	</entity>
+	
+	<entity name="SurveyPage" local-service="true" remote-service="false">
+	
+		<column name="surveyPageId" type="long" primary="true" />
+		
+		<column name="surveyMainId" type="long"	/>
+		
+		<column name="no" type="int" />
+		<column name="title" type="String" />
+		<column name="pageDirectId" type="long" /><!-- 跳轉頁的頁面ID, 0 = 未設定, -1 = 結束填寫  -->
+		
+		<column name="creatorId" type="long" />
+		<column name="modifierId" type="long" />
+		<column name="createDate" type="long" />
+		<column name="modifiedDate" type="long" />
+		
+		<order by="asc">
+			<order-column name="no" />
+		</order>
+		
+		<finder return-type="Collection" name="SurveyMainId">
+			<finder-column name="surveyMainId" />
+		</finder>
+		
+		<finder return-type="SurveyPage" name="SurveyMainIdAndNo">
+			<finder-column name="surveyMainId" />
+			<finder-column name="no" />
+		</finder>
+		
+	</entity>
+	
+	<entity name="SurveyQuestion" local-service="true" remote-service="false">
+	
+		<column name="surveyQuestionId" type="long" primary="true" />
+		
+		<column name="surveyMainId" type="long"	/>
+		<column name="surveyPageId" type="long" />
+		<column name="parentId" type="long" /><!-- 單選方格題用 -->
+		
+		<column name="no" type="int" />
+		<column name="question" type="String" />
+		<column name="type" type="String"/>
+		<column name="isRequired" type="Boolean" />
+		<column name="hasOther" type="Boolean" />
+		<column name="optionDirect" type="Boolean" /><!-- 是否開啟選項的頁面導引 -->
+		<column name="points" type="String" />
+		<column name="starsCount" type="int" /><!-- 級數：星級評分使用 -->
+		<column name="uploadFileId" type="long" />
+		
+		<column name="creatorId" type="long" />
+		<column name="modifierId" type="long" />
+		<column name="createDate" type="long" />
+		<column name="modifiedDate" type="long" />
+		
+		<order by="asc">
+			<order-column name="no" />
+		</order>
+		
+		<finder return-type="Collection" name="ParentId">
+			<finder-column name="parentId" />
+		</finder>
+		
+		<finder return-type="Collection" name="SurveyPageIdAndParentId">
+			<finder-column name="surveyPageId" />
+			<finder-column name="parentId" />
+		</finder>
+		
+		<finder return-type="Collection" name="SurveyMainId">
+			<finder-column name="surveyMainId" />
+		</finder>
+		
+		<finder return-type="Collection" name="SurveyPageId">
+			<finder-column name="surveyPageId" />
+		</finder>
+		
+		<finder return-type="Collection" name="Type">
+			<finder-column name="type" />
+		</finder>
+		
+		<finder return-type="Collection" name="SurveyMainIdAndParentIdNotZero" where="parentId!=0">
+			<finder-column name="surveyMainId" />
+		</finder>
+		
+	</entity>
+	
+	<entity name="SurveyOption" local-service="true" remote-service="false">
+	
+		<column name="surveyOptionId" type="long" primary="true" />
+		
+		<column name="surveyMainId" type="long"	/>
+		<column name="surveyPageId" type="long" />
+		<column name="surveyQuestionId" type="long"/>
+		
+		<column name="no" type="int" />
+		<column name="option" type="String" />
+		<column name="isAns" type="Boolean" /><!-- is correct answer -->
+		<column name="pageDirectId" type="long" /><!-- 跳轉頁的頁面ID, 0 = 未設定, -1 = 結束填寫  -->
+		<column name="uploadFileId" type="long" />
+		
+		<column name="creatorId" type="long" />
+		<column name="modifierId" type="long" />
+		<column name="createDate" type="long" />
+		<column name="modifiedDate" type="long" />
+		
+		<order by="asc">
+			<order-column name="no" />
+		</order>
+		
+		<finder return-type="Collection" name="SurveyQuestionId">
+			<finder-column name="surveyQuestionId" />
+		</finder>
+		
+		<finder return-type="Collection" name="SurveyPageId">
+			<finder-column name="surveyPageId" />
+		</finder>
+		
+		<finder return-type="Collection" name="SurveyMainId">
+			<finder-column name="surveyMainId" />
+		</finder>
+		
+		<finder return-type="Collection" name="Q_I">
+			<finder-column name="surveyQuestionId" />
+			<finder-column name="isAns" />
+		</finder>
+		
+	</entity>
+	
+	<entity name="SurveyResult" local-service="true" remote-service="false">
+	
+		<column name="surveyResultId" type="long" primary="true"/>
+		
+		<column name="surveyMainId" type="long" />
+		<column name="surveyPageId" type="long" />
+		<column name="surveyQuestionId" type="long" />
+		<column name="surveyOptionId" type="long" /><!-- 單選、多選的"其他"id = -1 -->
+		<column name="surveyWriterId" type="long" />
+		<column name="ans" type="String" />
+		
+		<column name="creatorId" type="long" />
+		<column name="createDate" type="long" />
+		
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+		
+		<finder return-type="Collection" name="SurveyMainId">
+			<finder-column name="surveyMainId" />
+		</finder>
+		
+		<finder return-type="Collection" name="SurveyWriterId">
+			<finder-column name="surveyWriterId" />
+		</finder>
+		
+		<finder return-type="Collection" name="P_W">
+			<finder-column name="surveyPageId" />
+			<finder-column name="surveyWriterId" />
+		</finder>
+		
+		<finder return-type="Collection" name="Q_W">
+			<finder-column name="surveyQuestionId" />
+			<finder-column name="surveyWriterId" />
+		</finder>
+		
+		<finder return-type="Collection" name="Q_O">
+			<finder-column name="surveyQuestionId" />
+			<finder-column name="surveyOptionId" />
+		</finder>
+		
+		<finder return-type="SurveyResult" name="O_W">
+			<finder-column name="surveyOptionId" />
+			<finder-column name="surveyWriterId" />
+		</finder>
+	
+	</entity>
+	
+	<entity name="SurveyWriter" local-service="true" remote-service="false">
+	
+		<column name="surveyWriterId" type="long" primary="true" />
+		
+		<column name="surveyMainId" type="long" />
+		<column name="isPreview" type="Boolean" /><!-- 是否為預覽 -->
+		<column name="isComplete" type="Boolean" /><!-- 按下送出表單後，該份表單變為已完成(true) -->
+		<column name="completionTime" type="long" /><!-- 完成時間 -->
+		
+		<column name="creatorId" type="long" />
+		<column name="createDate" type="long" />
+		
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+		
+		<finder return-type="Collection" name="SurveyMainId">
+			<finder-column name="surveyMainId" />
+		</finder>
+		
+		<finder return-type="Collection" name="M_P_C">
+			<finder-column name="surveyMainId" />
+			<finder-column name="isPreview" />
+			<finder-column name="isComplete" />
+		</finder>
+	
+	</entity>
+	
+	<!-- 用來記錄填寫者的填寫順序 -->
+	<entity name="SurveyWriteSequence" local-service="true" remote-service="false">
+	
+		<column name="surveyWriteSequenceId" type="long" primary="true" />
+		
+		<column name="surveyWriterId" type="long" />
+		<column name="pageId" type="long" />
+		<column name="prePageId" type="long" /><!-- 當前頁面上一頁的頁面ID -->
+		<column name="isDirect" type="Boolean" /><!-- 頁面是跳轉過來的 -->
+		
+		<column name="creatorId" type="long" />
+		<column name="createDate" type="long" />
+		
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+		
+		<finder return-type="Collection" name="SurveyWriterId">
+			<finder-column name="surveyWriterId" />
+		</finder>
+		
+		<finder return-type="SurveyWriteSequence" name="S_P">
+			<finder-column name="surveyWriterId" />
+			<finder-column name="pageId" />
+		</finder>
+	
+	</entity>
+	
+	<entity name="SurveyResponse" local-service="true" remote-service="false">
+	
+		<column name="surveyResponseId" type="long" primary="true" />
+		
+		<column name="surveyMainId" type="long" />
+		<column name="writerId" type="long" />
+		<column name="response" type="String" />
+		
+		<column name="creatorId" type="long" />
+		<column name="createDate" type="long" />
+		
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+		
+		<finder return-type="Collection" name="SurveyMainId">
+			<finder-column name="surveyMainId" />
+		</finder>
+		
+		<finder return-type="Collection" name="WriterId">
+			<finder-column name="writerId" />
+		</finder>
+	
+	</entity>
+	
+	<entity name="SurveyFile" local-service="true" remote-service="false">
+		
+		<column name="surveyFileId" type="long" primary="true" />
+		
+		<column name="surveyMainId" type="long" />
+		<column name="fileName" type="String" />
+		
+		<column name="creatorId" type="long" />
+		<column name="createDate" type="long" />
+		
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+		
+		<finder return-type="Collection" name="SurveyMainId">
+			<finder-column name="surveyMainId" />
+		</finder>
+		
+	</entity>
+	
+</service-builder>

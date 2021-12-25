@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<custom-sql>
+	
+	<sql id="com.lc.survey.service.persistence.SurveyMainFinder.findForSearch">
+		<![CDATA[
+			SELECT 
+				* 
+			FROM 
+				lc_surveymain
+			WHERE
+				creatorId = ?
+				[$OPEN_TIME$]
+				[$CALCULATE_SCORE$]
+				[$TITLE$]
+			ORDER BY
+				modifiedDate DESC
+		]]>
+	</sql>
+	
+</custom-sql>

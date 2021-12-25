@@ -1,0 +1,25 @@
+.survey-page-direct-item-container {
+  margin: 5px 0 15px 0 !important; }
+
+.survey-page-direct-item {
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.24);
+  height: auto;
+  padding: 15px 10px;
+  font-weight: 400 !important; }
+
+.survey-page-direct-input:checked + .survey-page-direct-item {
+  background-color: #426282;
+  color: #ffffff !important; }
+
+/*Page direct button--------------------------------------------------------*/
+@media (max-width: 500px) {
+  #survey_page_direct_check {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-width: 3px; }
+
+  #survey_page_direct_check i {
+    font-size: 40px;
+    margin-top: 10px !important; } }
+

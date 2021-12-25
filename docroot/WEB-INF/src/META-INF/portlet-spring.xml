@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.lc.survey.service.SurveyFileLocalService" class="com.lc.survey.service.impl.SurveyFileLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyFilePersistence" class="com.lc.survey.service.persistence.SurveyFilePersistenceImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.SurveyMainLocalService" class="com.lc.survey.service.impl.SurveyMainLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyMainPersistence" class="com.lc.survey.service.persistence.SurveyMainPersistenceImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.persistence.SurveyMainFinder" class="com.lc.survey.service.persistence.SurveyMainFinderImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.SurveyOptionLocalService" class="com.lc.survey.service.impl.SurveyOptionLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyOptionPersistence" class="com.lc.survey.service.persistence.SurveyOptionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.SurveyPageLocalService" class="com.lc.survey.service.impl.SurveyPageLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyPagePersistence" class="com.lc.survey.service.persistence.SurveyPagePersistenceImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.SurveyQuestionLocalService" class="com.lc.survey.service.impl.SurveyQuestionLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyQuestionPersistence" class="com.lc.survey.service.persistence.SurveyQuestionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.SurveyResponseLocalService" class="com.lc.survey.service.impl.SurveyResponseLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyResponsePersistence" class="com.lc.survey.service.persistence.SurveyResponsePersistenceImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.SurveyResultLocalService" class="com.lc.survey.service.impl.SurveyResultLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyResultPersistence" class="com.lc.survey.service.persistence.SurveyResultPersistenceImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.SurveyWriterLocalService" class="com.lc.survey.service.impl.SurveyWriterLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyWriterPersistence" class="com.lc.survey.service.persistence.SurveyWriterPersistenceImpl" parent="basePersistence" />
+	<bean id="com.lc.survey.service.SurveyWriteSequenceLocalService" class="com.lc.survey.service.impl.SurveyWriteSequenceLocalServiceImpl" />
+	<bean id="com.lc.survey.service.persistence.SurveyWriteSequencePersistence" class="com.lc.survey.service.persistence.SurveyWriteSequencePersistenceImpl" parent="basePersistence" />
+</beans>

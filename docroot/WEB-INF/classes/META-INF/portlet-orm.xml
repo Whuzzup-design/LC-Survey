@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyFileModelImpl">
+		<attributes>
+			<id name="surveyFileId" />
+			<basic name="surveyMainId" />
+			<basic name="fileName" />
+			<basic name="creatorId" />
+			<basic name="createDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyMainModelImpl">
+		<attributes>
+			<id name="surveyMainId" />
+			<basic name="title" />
+			<basic name="description" />
+			<basic name="epilog" />
+			<basic name="startDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="needAuth" />
+			<basic name="calculateScore" />
+			<basic name="viewAnswer" />
+			<basic name="color" />
+			<basic name="creatorId" />
+			<basic name="modifierId" />
+			<basic name="createDate" />
+			<basic name="modifiedDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyOptionModelImpl">
+		<attributes>
+			<id name="surveyOptionId" />
+			<basic name="surveyMainId" />
+			<basic name="surveyPageId" />
+			<basic name="surveyQuestionId" />
+			<basic name="no" />
+			<basic name="option">
+				<column name="OPTION_" />
+			</basic>
+			<basic name="isAns" />
+			<basic name="pageDirectId" />
+			<basic name="uploadFileId" />
+			<basic name="creatorId" />
+			<basic name="modifierId" />
+			<basic name="createDate" />
+			<basic name="modifiedDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyPageModelImpl">
+		<attributes>
+			<id name="surveyPageId" />
+			<basic name="surveyMainId" />
+			<basic name="no" />
+			<basic name="title" />
+			<basic name="pageDirectId" />
+			<basic name="creatorId" />
+			<basic name="modifierId" />
+			<basic name="createDate" />
+			<basic name="modifiedDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyQuestionModelImpl">
+		<attributes>
+			<id name="surveyQuestionId" />
+			<basic name="surveyMainId" />
+			<basic name="surveyPageId" />
+			<basic name="parentId" />
+			<basic name="no" />
+			<basic name="question" />
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<basic name="isRequired" />
+			<basic name="hasOther" />
+			<basic name="optionDirect" />
+			<basic name="points" />
+			<basic name="starsCount" />
+			<basic name="uploadFileId" />
+			<basic name="creatorId" />
+			<basic name="modifierId" />
+			<basic name="createDate" />
+			<basic name="modifiedDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyResponseModelImpl">
+		<attributes>
+			<id name="surveyResponseId" />
+			<basic name="surveyMainId" />
+			<basic name="writerId" />
+			<basic name="response" />
+			<basic name="creatorId" />
+			<basic name="createDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyResultModelImpl">
+		<attributes>
+			<id name="surveyResultId" />
+			<basic name="surveyMainId" />
+			<basic name="surveyPageId" />
+			<basic name="surveyQuestionId" />
+			<basic name="surveyOptionId" />
+			<basic name="surveyWriterId" />
+			<basic name="ans" />
+			<basic name="creatorId" />
+			<basic name="createDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyWriterModelImpl">
+		<attributes>
+			<id name="surveyWriterId" />
+			<basic name="surveyMainId" />
+			<basic name="isPreview" />
+			<basic name="isComplete" />
+			<basic name="completionTime" />
+			<basic name="creatorId" />
+			<basic name="createDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lc.survey.model.impl.SurveyWriteSequenceModelImpl">
+		<attributes>
+			<id name="surveyWriteSequenceId" />
+			<basic name="surveyWriterId" />
+			<basic name="pageId" />
+			<basic name="prePageId" />
+			<basic name="isDirect" />
+			<basic name="creatorId" />
+			<basic name="createDate" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.lc.survey.model.impl.SurveyFileImpl" name="SurveyFile">
+		<table name="lc_SurveyFile" />
+		<attributes />
+	</entity>
+	<entity class="com.lc.survey.model.impl.SurveyMainImpl" name="SurveyMain">
+		<table name="lc_SurveyMain" />
+		<attributes />
+	</entity>
+	<entity class="com.lc.survey.model.impl.SurveyOptionImpl" name="SurveyOption">
+		<table name="lc_SurveyOption" />
+		<attributes />
+	</entity>
+	<entity class="com.lc.survey.model.impl.SurveyPageImpl" name="SurveyPage">
+		<table name="lc_SurveyPage" />
+		<attributes />
+	</entity>
+	<entity class="com.lc.survey.model.impl.SurveyQuestionImpl" name="SurveyQuestion">
+		<table name="lc_SurveyQuestion" />
+		<attributes />
+	</entity>
+	<entity class="com.lc.survey.model.impl.SurveyResponseImpl" name="SurveyResponse">
+		<table name="lc_SurveyResponse" />
+		<attributes />
+	</entity>
+	<entity class="com.lc.survey.model.impl.SurveyResultImpl" name="SurveyResult">
+		<table name="lc_SurveyResult" />
+		<attributes />
+	</entity>
+	<entity class="com.lc.survey.model.impl.SurveyWriterImpl" name="SurveyWriter">
+		<table name="lc_SurveyWriter" />
+		<attributes />
+	</entity>
+	<entity class="com.lc.survey.model.impl.SurveyWriteSequenceImpl" name="SurveyWriteSequence">
+		<table name="lc_SurveyWriteSequence" />
+		<attributes />
+	</entity>
+</entity-mappings>

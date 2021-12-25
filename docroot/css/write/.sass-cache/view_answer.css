@@ -1,0 +1,41 @@
+.aui textarea[disabled] {
+  background-color: #ffffff !important; }
+
+.result-text {
+  font-size: 17px;
+  margin-bottom: 10px; }
+
+.result-correct {
+  color: #488f06; }
+
+.result-wrong {
+  color: #b94a48; }
+
+.result-text i {
+  margin-right: 5px; }
+
+.well div {
+  margin-bottom: 10px; }
+
+.well .correct-answer {
+  word-break: break-word;
+  display: list-item;
+  margin-left: 18px; }
+
+/*768px - 1200px--------------------------------------------------------------------------------*/
+@media (min-width: 768px) and (max-width: 1200px) {
+  .result-text {
+    font-size: 20px; }
+
+  .well div {
+    font-size: 17px;
+    line-height: 20px; } }
+/*max 767px--------------------------------------------------------------------------------*/
+@media (max-width: 767px) {
+  .result-text {
+    font-size: 25px; }
+
+  .well div {
+    font-size: 20px;
+    line-height: 23px; } }
+

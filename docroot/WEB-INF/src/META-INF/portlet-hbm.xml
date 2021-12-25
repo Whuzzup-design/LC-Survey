@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.lc.survey.model.SurveyFile" />
+	<import class="com.lc.survey.model.SurveyMain" />
+	<import class="com.lc.survey.model.SurveyOption" />
+	<import class="com.lc.survey.model.SurveyPage" />
+	<import class="com.lc.survey.model.SurveyQuestion" />
+	<import class="com.lc.survey.model.SurveyResponse" />
+	<import class="com.lc.survey.model.SurveyResult" />
+	<import class="com.lc.survey.model.SurveyWriter" />
+	<import class="com.lc.survey.model.SurveyWriteSequence" />
+	<class name="com.lc.survey.model.impl.SurveyFileImpl" table="lc_SurveyFile">
+		<cache usage="read-write" />
+		<id name="surveyFileId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="surveyMainId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="fileName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.lc.survey.model.impl.SurveyMainImpl" table="lc_SurveyMain">
+		<cache usage="read-write" />
+		<id name="surveyMainId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="epilog" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="startDate" type="org.hibernate.type.TimestampType" />
+		<property name="endDate" type="org.hibernate.type.TimestampType" />
+		<property name="needAuth" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="calculateScore" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="viewAnswer" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="color" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifiedDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.lc.survey.model.impl.SurveyOptionImpl" table="lc_SurveyOption">
+		<cache usage="read-write" />
+		<id name="surveyOptionId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="surveyMainId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="surveyPageId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="surveyQuestionId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="no" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="option" type="com.liferay.portal.dao.orm.hibernate.StringType" column="option_" />
+		<property name="isAns" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="pageDirectId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="uploadFileId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifiedDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.lc.survey.model.impl.SurveyPageImpl" table="lc_SurveyPage">
+		<cache usage="read-write" />
+		<id name="surveyPageId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="surveyMainId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="no" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pageDirectId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifiedDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.lc.survey.model.impl.SurveyQuestionImpl" table="lc_SurveyQuestion">
+		<cache usage="read-write" />
+		<id name="surveyQuestionId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="surveyMainId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="surveyPageId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="no" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="question" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="type_" />
+		<property name="isRequired" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="hasOther" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="optionDirect" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="points" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="starsCount" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="uploadFileId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifierId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifiedDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.lc.survey.model.impl.SurveyResponseImpl" table="lc_SurveyResponse">
+		<cache usage="read-write" />
+		<id name="surveyResponseId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="surveyMainId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="writerId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="response" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.lc.survey.model.impl.SurveyResultImpl" table="lc_SurveyResult">
+		<cache usage="read-write" />
+		<id name="surveyResultId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="surveyMainId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="surveyPageId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="surveyQuestionId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="surveyOptionId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="surveyWriterId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ans" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.lc.survey.model.impl.SurveyWriterImpl" table="lc_SurveyWriter">
+		<cache usage="read-write" />
+		<id name="surveyWriterId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="surveyMainId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="isPreview" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="isComplete" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="completionTime" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.lc.survey.model.impl.SurveyWriteSequenceImpl" table="lc_SurveyWriteSequence">
+		<cache usage="read-write" />
+		<id name="surveyWriteSequenceId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="surveyWriterId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="pageId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="prePageId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="isDirect" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+</hibernate-mapping>
